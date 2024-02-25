@@ -5,15 +5,26 @@ import AwardCategory from "@/components/award-category/award-category";
 import ResultsModal from "@/components/results-modal/results-modal";
 import { dummyData } from "@/lib/data";
 
+type Nominee = {
+  id: string;
+  title: string;
+};
+
+type Category = {
+  id: string;
+  title: string;
+  items: Nominee[];
+};
+
 type SelectionsType = {
   [categoryId: string]: string | undefined;
 };
 
 export default function Home() {
-  const [categories, setCategories] = useState([]);
-  const [selections, setSelections] = useState({});
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [submitAttempted, setSubmitAttempted] = useState(false);
+  const [categories, setCategories] = useState<Category[]>([]);
+  const [selections, setSelections] = useState<SelectionsType>({});
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [submitAttempted, setSubmitAttempted] = useState<boolean>(false);
 
   const handleSelectNominee = (categoryId: string, nomineeId: string) => {
     setSelections((prevSelections: SelectionsType) => {
