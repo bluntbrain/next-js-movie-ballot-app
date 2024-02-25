@@ -1,0 +1,21 @@
+.category {
+  width: 100%;
+  margin-bottom: 0px;
+}
+
+.categoryTitle {
+  color: var(--white);
+  margin-bottom: 0px;
+}
+
+.categoryError {
+  color: var(--red);
+  height: 15px;
+  font-weight: 200;
+  margin-top: 2px;
+  margin: 0px;
+}
+
+.categoryError.hidden {
+  visibility: hidden;
+}
