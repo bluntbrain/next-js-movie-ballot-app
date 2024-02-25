@@ -1,11 +1,11 @@
-import React, { useMemo } from "react";
+import React from "react";
 import styles from "./results-modal.module.css";
 
 const ResultsModal = ({ isOpen, onClose, selections, categories }: any) => {
   if (!isOpen) return null;
 
-  const selectionsList = useMemo(() => {
-    return Object.entries(selections).map(([categoryId, nomineeId]) => {
+  const selectionsList = Object.entries(selections).map(
+    ([categoryId, nomineeId]) => {
       const category = categories.find((cat: any) => cat.id === categoryId);
       const categoryTitle = category?.title || "Unknown Category";
 
@@ -14,8 +14,8 @@ const ResultsModal = ({ isOpen, onClose, selections, categories }: any) => {
         "Unknown Nominee";
 
       return `${categoryTitle}: ${nomineeTitle}`;
-    });
-  }, [selections, categories]);
+    }
+  );
 
   return (
     <div className={styles.modalOverlay}>
